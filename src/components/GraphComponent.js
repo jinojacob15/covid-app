@@ -56,7 +56,7 @@ const deceasedProps = {
   labels: [...confirmedLabels],
   datasets: [
     {
-      label: 'deaths resported',
+      label: 'deaths reported',
       fill: false,
       lineTension: 0.1,
       backgroundColor: '#808080',

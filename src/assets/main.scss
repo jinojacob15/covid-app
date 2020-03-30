@@ -1,0 +1,143 @@
+
+
+
+
+.MainComponent{
+	margin-top: 20px;
+}
+
+.Heading{
+	width: 50%;
+	margin-bottom: 15px;
+	position: relative;
+	.last-update{
+		font-weight: 600;
+		color: #595959;
+		position: absolute;
+		top: 3px;
+		right: 0;
+	}
+}
+
+
+.IndividualTile{
+	h5{
+		text-transform: uppercase;
+		font-size: 13px;
+	}
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	padding: 5px 0 5px 0;
+	margin: 5px auto 10px auto;
+	.delta{
+		font-size: 13px;
+	}
+	.display-number{
+		
+		font-weight: 700;
+		font-size: 18px;
+	}
+
+}
+.confirmed{
+	h5{
+		color: #ff1a1a;
+		opacity: 0.5
+	}
+	.delta{
+		color: #ff1a1a;
+	}
+	.display-number{
+		color: #ff1a1a;
+	}
+	border:2px solid #ff1a1a;
+}
+.active{
+	h5{
+		color: #1ac6ff;
+		opacity: 0.5;
+	}
+	.delta{
+		color: #1ac6ff;
+	}
+	.display-number{
+		color: #1ac6ff;
+	}
+	border:2px solid #1ac6ff;
+}
+.recovered{
+	h5{
+		color: #2eb82e;
+		opacity: 0.5;
+	}
+	.delta{
+		color: #2eb82e;
+	}
+	.display-number{
+		color: #2eb82e;
+	}
+	border:2px solid #2eb82e;
+}
+.deceased{
+	h5{
+		color: #808080;
+		opacity: 0.5;
+	}
+	.delta{
+		color: #808080;
+	}
+	.display-number{
+		color: #808080;
+	}
+	border: 2px solid #808080;
+}
+
+
+.visiblity-hidden{
+	visibility: hidden;
+}
+
+.StatewiseTable{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	.ReactTable{
+		font-size: 13px;
+		.confirmed-delta{
+			color:#ff1a1a;
+		}
+	}
+	.DistictWiseView{
+		margin-top: 5px;
+		margin-bottom: 5px;
+		.ReactTable{
+			width: 70%;
+			margin: auto;
+		}
+	}
+
+}
+
+.GraphComponent{
+	margin-bottom: 10px;
+}
+
+	// media queries
+
+
+	@media (min-width: 320px) and (max-width: 768px) { 
+
+		.IndividualTile{
+			width: 100%;
+		}
+
+		.Heading{
+			width: 100%;
+			
+			.last-update{
+				position: relative;
+				
+			}
+		}
+
+
+	}

@@ -120,8 +120,22 @@
 .GraphComponent{
 	margin-bottom: 10px;
 }
+.footer{
+	position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+
+}
 
 	// media queries
+	.App{
+		position: relative;
+	padding-bottom: 70px;
+	}
 
 
 	@media (min-width: 320px) and (max-width: 768px) { 

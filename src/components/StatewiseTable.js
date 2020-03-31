@@ -1,7 +1,7 @@
 import React  from 'react';
 import ReactTable from 'react-table-v6'
 import 'react-table-v6/react-table.css'
-
+import ReactGA from 'react-ga'
 import DistictWiseView from'components/DistictWiseView'
 
 
@@ -59,6 +59,11 @@ import DistictWiseView from'components/DistictWiseView'
 		            }
           ]}
 			   SubComponent={row => {
+							   	ReactGA.event({
+							    category: 'DISTRICT-WISE',
+							    action: row.original.state,
+							  });
+
 					    return (
 					      <div>
 					      <DistictWiseView  stateDistrictWiseData={props.stateDistrictWiseData[row.original.state]}/>

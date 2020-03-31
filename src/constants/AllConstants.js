@@ -1,3 +1,5 @@
 
 
 export const REFRESH_TIME = 300000;
+
+export const GOOGLE_ANALYTICS_KEY = 'UA-142313973-3'

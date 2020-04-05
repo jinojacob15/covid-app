@@ -20,7 +20,7 @@ import DistictWiseView from'components/DistictWiseView'
 	    accessor: c => Number(c.confirmed),
 	    className:'text-right',
 	    headerClassName:'sticky',
-	    Cell: ({original}) => <span><span className="confirmed-delta">{original.delta.confirmed!==0?(<>+{original.delta.confirmed}</>):('')}</span>{" "}{original.confirmed}</span> 
+	    Cell: ({original}) => <span><span className="confirmed-delta">{original.deltaconfirmed!=='0'?(<>+{original.deltaconfirmed}</>):('')}</span>{" "}{original.confirmed}</span> 
 	  }, {
 	    Header: 'Active', 
 	     id: 'Active', 

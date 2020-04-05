@@ -1,16 +1,14 @@
 import React ,{useState,useEffect} from 'react';
 import { Container } from 'reactstrap';
 import {Line} from 'react-chartjs-2';
-
+// import PieCharts from 'components/PieCharts'
 
  const  GraphComponent = (props) =>  {
 
  	const [confirmedLabels,setconfirmedLabels]=useState([])
  	const[graphConfirmedData,setgraphConfirmedData] = useState([]) 
 
- 	
  	const[graphDeceasedData,setgraphDeceasedData] = useState([]) 
-
  	
  	const[graphrecoveredData,setgraphrecoveredData] = useState([]) 
 
@@ -105,17 +103,20 @@ const recoveredProps = {
   ]
 };
 
+
+
   return (
     <div className="GraphComponent">
       <Container>
-           <Line data={confirmedProps} />
+           <Line data={confirmedProps}   />
         </Container>
          <Container>
-           <Line data={deceasedProps} />
+           <Line data={deceasedProps}   />
         </Container>
          <Container>
-           <Line data={recoveredProps} />
+           <Line data={recoveredProps}   />
         </Container>
+   
     </div>
   );
 }

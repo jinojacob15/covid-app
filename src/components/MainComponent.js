@@ -11,26 +11,29 @@ import GraphComponent from 'components/GraphComponent';
 
  const  MainComponent = () =>  {
  	  const [overallData, setOverallData] = useState({});
- 	  const [delta,setDelta] = useState({})
  	  const [lastUpdateTime,setLastUpdateTime] = useState(new Date());
-      const [stateWiseData,setstateWiseData] = useState([])
-       const [stateDistrictWiseData,setstateDistrictWiseData] = useState({})
-       const [dailyStats,setDailyStats] = useState([])
+      const [stateWiseData,setstateWiseData] = useState([]);
+       const [stateDistrictWiseData,setstateDistrictWiseData] = useState({});
+       const [dailyStats,setDailyStats] = useState([]);
+       // const [rawData,setRawData] = useState([])
 
  	  const getCovidData = () => {
        axios
          .get(COVID_API)
            .then(response => {
-            const responseData = response.data.statewise.filter(elm=> elm.state === 'Total')  
+           	
+            const responseData = response.data.statewise.filter(elm=> elm.state === 'Total')
             setOverallData(responseData[0])
-            const deltaData =   response.data.key_values[0];
-            setDelta(deltaData)  
-            const lastTime  = response.data.key_values[0].lastupdatedtime
+
+            const lastTime  = responseData[0].lastupdatedtime
             setLastUpdateTime(lastTime)
+          
             const stateData = response.data.statewise.filter(elm => elm.state !== 'Total' && elm.confirmed !== '0')
             setstateWiseData(stateData)
+
             const dailyStats = response.data.cases_time_series;
             setDailyStats(dailyStats);
+
              })
             .catch(error => {
                     console.log(error)
@@ -48,9 +51,21 @@ import GraphComponent from 'components/GraphComponent';
                     });
  	  }
 
+ 	 // const getRawData = () => {
+ 	 //  	  axios
+   //       .get(RAW_DATA_API)
+   //         .then(response => {
+   //        setRawData(response.data.raw_data)
+   //           })
+   //          .catch(error => {
+   //                  console.log(error)
+   //                  });
+ 	 //  }
+
   useEffect(() => {
-  	getCovidData(); //  for the first time
+  	getCovidData(); 
   	getStateWiseData();
+  	// getRawData();
   // refresh the data every 5 minutes
   	 const interval = setInterval(() => {
     getCovidData()
@@ -66,11 +81,11 @@ import GraphComponent from 'components/GraphComponent';
          <Header lastUpdateTime={lastUpdateTime} />
          </Col>
           <Col md={6} xs={12}>
-            <Statistics overallData={overallData}  delta={delta} />
-               <StatewiseTable  stateWiseData={stateWiseData} stateDistrictWiseData={stateDistrictWiseData}/>
+            <Statistics overallData={overallData}  delta={overallData} />
+            <StatewiseTable  stateWiseData={stateWiseData} stateDistrictWiseData={stateDistrictWiseData}/>
           </Col>
           <Col md={6} xs={12}>
-          <GraphComponent dailyStats={dailyStats}/> 
+          <GraphComponent dailyStats={dailyStats} /> 
           </Col>
           <Col md={6} xs={12}>
        

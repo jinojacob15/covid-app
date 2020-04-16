@@ -15,7 +15,8 @@ import 'react-table-v6/react-table.css'
  		accessor:'district'
  	},{
  		Header:'Confirmed',
- 		accessor:'confirmed'
+ 		accessor:'confirmed',
+ 		  id:"Confirmed",
  	}]
 
 
@@ -43,6 +44,12 @@ setdistrictData(simplifiedData)
 		     showPagination ={false}
 			 className="-striped -highlight"
 			 pageSize={districtData.length}
+			   defaultSorted={[
+		            {
+		              id: "Confirmed",
+		              desc: true
+		            }
+          ]}
 		  />
          
     </div>

@@ -28,7 +28,7 @@ const confirmedProps = {
   labels: [...confirmedLabels],
   datasets: [
     {
-      label: 'confirmed',
+      label: 'Confirmed',
       fill: false,
       lineTension: 0.1,
       backgroundColor: '#ff1a1a',
@@ -50,11 +50,12 @@ const confirmedProps = {
     }
   ]
 };
+
 const deceasedProps = {
   labels: [...confirmedLabels],
   datasets: [
     {
-      label: 'deaths reported',
+      label: 'Deaths reported',
       fill: false,
       lineTension: 0.1,
       backgroundColor: '#808080',

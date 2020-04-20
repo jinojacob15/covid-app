@@ -48,7 +48,7 @@ const confirmedProps = {
       pointHitRadius: 10,
       data: [...graphConfirmedData]
     }
-  ]
+  ],
 };
 
 const deceasedProps = {
@@ -104,18 +104,25 @@ const recoveredProps = {
   ]
 };
 
+const options = {
+  legend: {
+    onClick: function (e) {
+        e.stopPropagation();
+    }
+  }
+}
 
 
   return (
     <div className="GraphComponent">
       <Container>
-           <Line data={confirmedProps}   />
+           <Line data={confirmedProps} options={options}  />
         </Container>
          <Container>
-           <Line data={deceasedProps}   />
+           <Line data={deceasedProps} options={options}   />
         </Container>
          <Container>
-           <Line data={recoveredProps}   />
+           <Line data={recoveredProps} options={options}  />
         </Container>
    
     </div>

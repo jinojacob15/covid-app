@@ -51,21 +51,11 @@ import GraphComponent from 'components/GraphComponent';
                     });
  	  }
 
- 	 // const getRawData = () => {
- 	 //  	  axios
-   //       .get(RAW_DATA_API)
-   //         .then(response => {
-   //        setRawData(response.data.raw_data)
-   //           })
-   //          .catch(error => {
-   //                  console.log(error)
-   //                  });
- 	 //  }
 
   useEffect(() => {
   	getCovidData(); 
   	getStateWiseData();
-  	// getRawData();
+ 
   // refresh the data every 5 minutes
   	 const interval = setInterval(() => {
     getCovidData()

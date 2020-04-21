@@ -1,4 +1,6 @@
+
 import React ,{useState,useEffect} from 'react';
+
 import { Container, Row, Col } from 'reactstrap';
 import axios from 'axios';
 import {COVID_API,STATEWISE_API} from 'constants/apis' ;
@@ -11,6 +13,7 @@ import GraphComponent from 'components/GraphComponent';
 
  const  MainComponent = () =>  {
  	  const [overallData, setOverallData] = useState({});
+
  	  const [lastUpdateTime,setLastUpdateTime] = useState(new Date());
       const [stateWiseData,setstateWiseData] = useState([]);
        const [stateDistrictWiseData,setstateDistrictWiseData] = useState({});
@@ -59,6 +62,7 @@ import GraphComponent from 'components/GraphComponent';
   // refresh the data every 5 minutes
   	 const interval = setInterval(() => {
     getCovidData()
+    getStateWiseData();
   }, REFRESH_TIME);
   	  return () => clearInterval(interval);
   },[]);

@@ -3,12 +3,10 @@ import ReactTable from 'react-table-v6'
 import 'react-table-v6/react-table.css'
 import ReactGA from 'react-ga'
 import DistictWiseView from'components/DistictWiseView'
-
+import PercentageRender from 'components/PercentageRender'
 
 
  const  StatewiseTable = (props) =>  {
-
- 
 
  	const columns = [{
  		Header: 'State/UT',
@@ -32,13 +30,15 @@ import DistictWiseView from'components/DistictWiseView'
 	    accessor: c => Number(c.recovered),
 	    id:'Recovered',
 	     className:'text-right',
-	     headerClassName:'sticky'
+	     headerClassName:'sticky',
+	      Cell: ({original}) => <span><PercentageRender select={original.recovered} total={original.confirmed}/>{" "}{" "}{original.recovered}  </span> 
 	  },{
 	    Header: 'Deceased',
 	    id:'Deceased',
 	      accessor: c => Number(c.deaths),
 	     className:'text-right',
-	     headerClassName:'sticky'
+	     headerClassName:'sticky',
+	     Cell: ({original}) => <span><PercentageRender select={original.deaths} total={original.confirmed}/>{" "}{" "}{original.deaths}   </span> 
 	  }
  	]
 

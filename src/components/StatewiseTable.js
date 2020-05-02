@@ -8,7 +8,7 @@ import {isMobileOnly} from 'react-device-detect';
 
 const MOBILE_WIDTH=55;
 const MOBILE_MAX_WIDTH = undefined;
-const MOBILE_WIDTH_STATE_COL=60
+const MOBILE_WIDTH_STATE_COL=60;
 
 
  const  StatewiseTable = (props) =>  {

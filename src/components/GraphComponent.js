@@ -28,7 +28,7 @@ const confirmedProps = {
   labels: [...confirmedLabels],
   datasets: [
     {
-      label: 'Confirmed',
+      label: 'Daily Confirmed',
       fill: false,
       lineTension: 0.1,
       backgroundColor: '#ff1a1a',

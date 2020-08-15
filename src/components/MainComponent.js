@@ -3,12 +3,14 @@ import React ,{useState,useEffect} from 'react';
 
 import { Container, Row, Col } from 'reactstrap';
 import axios from 'axios';
+import ClipLoader from "react-spinners/ClipLoader";
 import {COVID_API,STATEWISE_API} from 'constants/apis' ;
 import {REFRESH_TIME} from 'constants/AllConstants' ;
 import Header from 'components/Header';
 import Statistics from 'components/Statistics';
 import StatewiseTable from 'components/StatewiseTable';
 import GraphComponent from 'components/GraphComponent';
+
 
 
  const  MainComponent = () =>  {
@@ -18,6 +20,7 @@ import GraphComponent from 'components/GraphComponent';
       const [stateWiseData,setstateWiseData] = useState([]);
        const [stateDistrictWiseData,setstateDistrictWiseData] = useState({});
        const [dailyStats,setDailyStats] = useState([]);
+       const[loading,setLoader] = useState(true);
        // const [rawData,setRawData] = useState([])
 
  	  const getCovidData = () => {
@@ -67,27 +70,40 @@ import GraphComponent from 'components/GraphComponent';
   	  return () => clearInterval(interval);
   },[]);
 
-  return (
-    <div className="MainComponent">
-      <Container>
-          <Row>
-          <Col md={12} xs={12}>
-         <Header lastUpdateTime={lastUpdateTime} />
-         </Col>
-          <Col md={6} xs={12}>
-            <Statistics overallData={overallData}  delta={overallData} />
-            <StatewiseTable  stateWiseData={stateWiseData} stateDistrictWiseData={stateDistrictWiseData}/>
-          </Col>
-          <Col md={6} xs={12}>
-          <GraphComponent dailyStats={dailyStats} /> 
-          </Col>
-          <Col md={6} xs={12}>
-       
-          </Col>
-          </Row>
-      </Container>
-    </div>
-  );
+
+  
+    return (
+      <div className="MainComponent">
+
+        {
+          loading ? ( 
+          <ClipLoader
+            size={150}
+            color={"#123abc"}
+            loading={loading}
+          />):(  <Container>
+            <Row>
+            <Col md={12} xs={12}>
+           <Header lastUpdateTime={lastUpdateTime} />
+           </Col>
+            <Col md={6} xs={12}>
+              <Statistics overallData={overallData}  delta={overallData} />
+              <StatewiseTable  stateWiseData={stateWiseData} stateDistrictWiseData={stateDistrictWiseData}/>
+            </Col>
+            <Col md={6} xs={12}>
+            <GraphComponent dailyStats={dailyStats} /> 
+            </Col>
+            <Col md={6} xs={12}>
+         
+            </Col>
+            </Row>
+        </Container>)
+        }
+      
+      </div>
+    );
+  
+  
 }
 
 export default MainComponent;

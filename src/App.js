@@ -3,7 +3,7 @@ import 'assets/main.scss';
 import MainComponent from 'components/MainComponent'
 import Footer from 'components/Footer'
 import ReactGA from 'react-ga'
-
+//
 export const  App = () =>  {
 
 useEffect(() => {
